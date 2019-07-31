@@ -13,9 +13,7 @@ export const state = () => {
     //用户信息
     userlnfo: {
       token: '',
-      user: {
-        nickname: ''
-      }
+      user: {}
     }
   }
 }
@@ -26,6 +24,13 @@ export const mutations = {
   // data使用调用该方法时候传入的数据
   setUserInfo(state, data) {
     state.userlnfo = data
+  },
+  //清除用户数据
+  clearUserInfo(state) {
+    state.userlnfo = {
+      token: '',
+      user: {}
+    }
   }
 }
 

@@ -14,8 +14,8 @@
         </el-row>
 
         <!-- 登录注册 -->
-        <div v-if="false">
-          <nuxt-link to="/user/login">登录</nuxt-link>
+        <div v-if="!$store.state.user.userlnfo.token">
+          <nuxt-link to="/user">登录注册</nuxt-link>
         </div>
         <!-- 登录之后的 -->
         <div v-else>
@@ -29,7 +29,7 @@
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>个人中心</el-dropdown-item>
-              <el-dropdown-item>退出</el-dropdown-item>
+              <el-dropdown-item @click.native="eliMinate">退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -40,11 +40,15 @@
 <script>
 export default {
   data() {
-    return {
-      mounted() {
-        console.log(this.$store.state.user)
-      }
+    return {}
+  },
+  methods: {
+    eliMinate() {
+      this.$store.commit('user/clearUserInfo')
     }
+  },
+  mounted() {
+    console.log(this.$store.state.user)
   }
 }
 </script>
