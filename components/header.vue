@@ -22,8 +22,10 @@
           <el-dropdown>
             <span class="el-dropdown-link">
               <img alt src="http://157.122.54.189:9095/assets/images/avatar.jpg" />
-              银河抽水机
-              <i class="el-icon-arrow-down el-icon--right"></i>
+              {{$store.state.user.userlnfo.user.nickname}}
+              <i
+                class="el-icon-arrow-down el-icon--right"
+              ></i>
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>个人中心</el-dropdown-item>
@@ -36,7 +38,15 @@
   </div>
 </template>
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      mounted() {
+        console.log(this.$store.state.user)
+      }
+    }
+  }
+}
 </script>
 <style lang="less" scoped>
 .header {
