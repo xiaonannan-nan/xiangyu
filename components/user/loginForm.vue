@@ -52,7 +52,7 @@ export default {
             method: 'post',
             data: this.form
           }).then(res => {
-            // console.log(res)
+            console.log(res)
             // 请求成功要把数据保存到store,要使用mutations的方法
             // mutations下面的方法必须使用commit来调用
             // 第一个参数的方法名,第二个是参数的数据

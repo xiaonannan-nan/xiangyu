@@ -43,6 +43,7 @@ export default {
     return {}
   },
   methods: {
+    //点击退出
     eliMinate() {
       this.$store.commit('user/clearUserInfo')
     }

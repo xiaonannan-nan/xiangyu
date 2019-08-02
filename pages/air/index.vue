@@ -8,8 +8,7 @@
     <!-- 搜索广告栏 -->
     <el-row justify="space-between" type="flex">
       <!-- 搜索表单 -->
-      <div>搜索</div>
-
+      <searchForm />>
       <!-- banner广告 -->
       <div class="sale-banner">
         <img src="http://157.122.54.189:9093/images/pic_sale.jpeg" />
@@ -38,12 +37,50 @@
     </h2>
 
     <!-- 特价机票 -->
-    <div class="air-sale"></div>
+    <div class="air-sale">
+      <el-row class="air-sale-pic" justify="space-between" type="flex">
+        <el-col :key="index" :span="6" v-for="(item,index) in sales ">
+          <nuxt-link
+            :to="`/air/flights?departCity=${item.departCity}&departCode=${item.departCode}&destCity=${item.destCity}&destCode=${item.destCode}&departDate=${item.departDate}`"
+          >
+            <!-- 封面 -->
+            <img :src="item.cover" />
+            <el-row class="layer-bar" justify="space-between" type="flex">
+              <!-- 出发城市 -->
+              <span>{{item.departCity}}--{{item.destCity}}</span>
+              <span>￥{{Number(item.price).toFixed(2)}}</span>
+            </el-row>
+          </nuxt-link>
+        </el-col>
+      </el-row>
+    </div>
   </section>
 </template>
 
 <script>
-export default {}
+import searchForm from '@/components/air/searchForm'
+export default {
+  components: {
+    searchForm
+  },
+  data() {
+    return {
+      sales: [] //  推荐机票列表
+    }
+  },
+  // 钩子函数
+  mounted() {
+    //获取特价机票数据
+    this.$axios({
+      url: '/airs/sale'
+      // method :默认git
+    }).then(res => {
+      console.log(res)
+      //获取数据赋值
+      this.sales = res.data.data
+    })
+  }
+}
 </script>
 
 <style scoped lang="less">
