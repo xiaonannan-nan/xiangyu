@@ -13,7 +13,47 @@
       </span>
     </el-row>
 
-    <el-form class="search-form-content" label-width="80px" ref="form">
+    <el-form class="search-form-content" label-width="80px" ref="form" v-if="currentTab==0">
+      <el-form-item label="出发城市">
+        <!-- fetch-suggestions 返回输入建议的方法 -->
+        <!-- select 点击选中建议项时触发 -->
+        <el-autocomplete
+          :fetch-suggestions="queryDepartSearch"
+          @select="handleDepartSelect"
+          class="el-autocomplete"
+          placeholder="请搜索出发城市"
+          v-model="form.departCity"
+        ></el-autocomplete>
+      </el-form-item>
+      <el-form-item label="到达城市">
+        <el-autocomplete
+          :fetch-suggestions="queryDestSearch"
+          @select="handleDestSelect"
+          class="el-autocomplete"
+          placeholder="请搜索到达城市"
+          v-model="form.destCity"
+        ></el-autocomplete>
+      </el-form-item>
+      <el-form-item label="出发时间">
+        <!-- change 用户确认选择日期时触发 -->
+        <el-date-picker
+          @change="handleDate"
+          placeholder="请选择日期"
+          style="width: 100%;"
+          type="date"
+          v-model="form.departDate"
+        ></el-date-picker>
+      </el-form-item>
+      <el-radio label="1" style=" margin-bottom:10px ;" v-model="radio">带儿童</el-radio>
+      <el-radio label="2" v-model="radio">带巨婴</el-radio>
+      <el-form-item label>
+        <el-button @click="handleSubmit" icon="el-icon-search" style="width:100%;" type="primary">搜索</el-button>
+      </el-form-item>
+      <div class="reverse">
+        <span @click="handleReverse">换</span>
+      </div>
+    </el-form>
+    <el-form class="search-form-content" label-width="80px" ref="form" v-if="currentTab==1">
       <el-form-item label="出发城市">
         <!-- fetch-suggestions 返回输入建议的方法 -->
         <!-- select 点击选中建议项时触发 -->
@@ -60,6 +100,8 @@ import moment from 'moment'
 export default {
   data() {
     return {
+      //带巨婴
+      radio: '0',
       tabs: [
         { icon: 'iconfont icondancheng', name: '单程' },
         { icon: 'iconfont iconshuangxiang', name: '往返' }
@@ -78,9 +120,10 @@ export default {
   methods: {
     // tab切换时触发
     handleSearchTab(item, index) {
-      if (index == 1) {
-        this.$alert('暂时不支持往返', '提示', { type: 'warning' })
-      }
+      // if (index == 1) {
+      //   this.$alert('暂时不支持往返', '提示', { type: 'warning' })
+      // }
+      this.currentTab = index
     },
 
     // 出发城市输入框获得焦点时触发
