@@ -1,4 +1,5 @@
 /* 页面切换时候过渡样式 */
+<<<<<<< HEAD
 .page-enter-active,
 .page-leave-active {
   transition: opacity .5s;
@@ -15,3 +16,19 @@
   background: #409eff;
   height: 1px;
 }
+=======
+.page-enter-active, .page-leave-active {
+    transition: opacity .5s;
+}
+
+/* 打开时候过渡样式 */
+.page-enter, .page-leave-active {
+    opacity: 0;
+}
+
+/* 页面顶部页面加载进度条 */
+.nuxt-progress{
+    background:#409eff;
+    height: 1px;
+}
+>>>>>>> 57f94a562f4db958f3f4cc411e2516e4e461832d

@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+<<<<<<< HEAD
     <!-- 组件占位符，相当于router-view -->
     <nuxt />
     <Footer />
@@ -12,21 +13,39 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 export default {
   // 注册组件
+=======
+
+    <nuxt />
+    <Footer />>
+  </div>
+</template>
+<script>
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+
+export default {
+  //注册组件
+>>>>>>> 57f94a562f4db958f3f4cc411e2516e4e461832d
   components: {
     Header,
     Footer
   }
 }
 </script>
+<<<<<<< HEAD
 
 <style>
 /* 公共样式，不要加scoped */
 /*项目css初始化文件*/
 /*清除内外边距  */
+=======
+<style>
+>>>>>>> 57f94a562f4db958f3f4cc411e2516e4e461832d
 * {
   margin: 0;
   padding: 0;
 }
+<<<<<<< HEAD
 /*让所有斜体 不倾斜*/
 em,
 i {
@@ -100,5 +119,19 @@ body {
 /* 设置相对定位 */
 .pr {
   position: relative;
+=======
+ul,
+li,
+ol {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+em,
+i {
+  font-stretch: normal;
+>>>>>>> 57f94a562f4db958f3f4cc411e2516e4e461832d
 }
 </style>
