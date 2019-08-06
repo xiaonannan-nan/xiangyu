@@ -151,14 +151,14 @@ export default {
         //我们输入一个字他会返回数据库里面匹配的数组模式返回
         // 我们要遍历每一项拿到name添加value属性就是我们cd里面的参数
         const newData = data.map(v => {
-          //replace替代,就是移除市
+          //replace替代,就是移除"市"
           v.value = v.name.replace('市', '')
           // console.log(v)
 
           return v
         })
 
-        //如果用户没有点击 设置第一个为选中默认值进行展示
+        //如果用户没有点击 设置第一个为选中默认值进行展示和保存
         this.form.departCity = newData[0].value
         //保存出发城市编码
         this.form.departCode = newData[0].sort
@@ -269,6 +269,19 @@ export default {
         //五个参数
         query: this.form
       })
+      // 获取出本地(vuex)的数据
+      const arr = [...this.$store.state.air.history]
+
+      // 新的记录添加到第一个
+      arr.unshift(this.form)
+
+      // 如果长度大于5，只保留5位
+      if (arr.length > 5) {
+        arr.length = 5
+      }
+
+      // 调用vuex的方法保存数据
+      this.$store.commit('air/setHistory', arr)
     }
   },
   mounted() {}

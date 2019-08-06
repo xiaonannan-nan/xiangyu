@@ -9,6 +9,7 @@
           class="banner-image"
         ></div>
       </el-carousel-item>
+
     </el-carousel>
     <!-- tab栏 -->
     <div class="banner-content">
