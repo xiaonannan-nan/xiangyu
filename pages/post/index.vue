@@ -1,5 +1,5 @@
 <template>
-  <div class="dix">旅游首页</div>
+  <div class="post">旅游攻略模块首页文件</div>
 </template>
 <script>
 export default {}

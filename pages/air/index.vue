@@ -1,7 +1,10 @@
+
+
 <template>
   <section class="container">
     <h2 class="air-title">
       <span class="iconfont iconfeiji"></span>
+
       <i>国内机票</i>
     </h2>
 
@@ -51,6 +54,7 @@
               <span>￥{{Number(item.price).toFixed(2)}}</span>
             </el-row>
           </nuxt-link>
+          
         </el-col>
       </el-row>
     </div>

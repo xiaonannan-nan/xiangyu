@@ -3,6 +3,7 @@ export default {
   /*
    ** Headers of the page
    */
+
   head: {
     title: '世界上最大的旅游网站 - 闲云旅游',
     meta: [{
@@ -46,7 +47,8 @@ export default {
    */
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/axios', {
+    '@/plugins/axios',
+    {
       src: '@/plugins/localStorage',
       ssr: false
     }

@@ -32,6 +32,7 @@
               <el-dropdown-item @click.native="eliMinate">退出</el-dropdown-item>
             </el-dropdown-menu>
             
+            
           </el-dropdown>
         </div>
       </el-row>

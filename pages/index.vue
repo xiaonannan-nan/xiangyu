@@ -1,4 +1,5 @@
 <template>
+
   <div class="container">
     <!-- 轮播图 -->
     <el-carousel :interval="5000" arrow="always">
@@ -9,6 +10,7 @@
           class="banner-image"
         ></div>
       </el-carousel-item>
+
 
     </el-carousel>
     <!-- tab栏 -->

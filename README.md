@@ -4,7 +4,11 @@
 
 ## Build Setup
 
+<<<<<<< HEAD
+``` bash
+=======
 ```bash
+>>>>>>> 57f94a562f4db958f3f4cc411e2516e4e461832d
 # install dependencies
 $ npm run install
 

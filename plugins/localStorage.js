@@ -7,5 +7,6 @@ export default ({
     createPersistedState({
       key: 'store',
     })(store)
+
   })
 }
