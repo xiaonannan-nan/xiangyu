@@ -41,7 +41,7 @@
         </el-row>
         <el-row type="flex" justify="space-between" align="middle" class="info-bar">
             <span>应付总额：</span>
-            <span class="price">￥ </span>
+            <span class="price">￥{{price}} </span>
         </el-row>           
     </div>
 </template>
@@ -51,7 +51,13 @@ export default {
     props: {
         data: {
             type: Object,
-            default: {}
+            default: {
+              
+            }
+        },
+        price:{
+          type:Number,
+          default:0
         }
     },
 

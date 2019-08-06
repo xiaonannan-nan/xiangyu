@@ -1,5 +1,4 @@
 <template>
-
   <div class="container">
     <!-- 轮播图 -->
     <el-carousel :interval="5000" arrow="always">

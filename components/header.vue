@@ -15,7 +15,7 @@
 
         <!-- 登录注册 -->
         <div v-if="!$store.state.user.userlnfo.token">
-          <nuxt-link to="/user">登录注册</nuxt-link>
+          <nuxt-link to="/user/logo_index">登录/注册</nuxt-link>
         </div>
         <!-- 登录之后的 -->
         <div v-else>

@@ -1,5 +1,4 @@
-<template>
-
+<template> 
   <el-form :model="form" :rules="rules" class="form" ref="form">
     <el-form-item class="form-item" prop="username">
       <el-input placeholder="用户名/手机" v-model="form.username"></el-input>
@@ -53,13 +52,16 @@ export default {
             method: 'post',
             data: this.form
           }).then(res => {
+            console.log(1234)
             console.log(res)
             // 请求成功要把数据保存到store,要使用mutations的方法
             // mutations下面的方法必须使用commit来调用
             // 第一个参数的方法名,第二个是参数的数据
             this.$store.commit('user/setUserInfo', res.data)
-            //跳转到首页
-            this.$router.push('/')
+            // //跳转到首页
+            // this.$router.push('/')
+             // 返回上一页
+           this.$router.back();
           })
         } else {
           this.$message({
